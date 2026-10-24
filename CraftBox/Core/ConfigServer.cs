@@ -381,6 +381,8 @@ details{margin-top:14px}summary{cursor:pointer;color:#8a96a3;font-size:14px}</st
             // Check for a .torrent file in data dir first (pushed for testing), then magnet from query, then YTS
             var qs = ctx.Request.QueryString;
             var magnet = qs["magnet"];
+            if (!string.IsNullOrEmpty(magnet) && !magnet.StartsWith("magnet:", StringComparison.OrdinalIgnoreCase))
+                magnet = null;
             var torrentPath = System.IO.Path.Combine(
                 Tizen.Applications.Application.Current.DirectoryInfo.Data, "test.torrent");
             if (System.IO.File.Exists(torrentPath))
