@@ -1,0 +1,9 @@
+bin/
+obj/
+*.tpk
+*.user
+.vs/
+*.DS_Store
+debug.log
+secrets.json
+monotorrent-src/
